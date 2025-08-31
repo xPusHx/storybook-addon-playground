@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { IconButton } from "@storybook/components";
+import { IconButton } from "storybook/internal/components";
 import cx from "classnames";
 import styles from "./EditorToolbarButton.module.css";
 
@@ -21,7 +21,6 @@ const EditorToolbarButton: React.FC<EditorToolbarButtonProps> = ({
   onClick,
 }) => (
   <IconButton
-    placeholder={text}
     title={tooltip}
     onClick={onClick}
     disabled={disabled}
