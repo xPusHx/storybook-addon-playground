@@ -1,15 +1,3 @@
-# [3.0.0](https://github.com/mondaycom/storybook-addon-playground/compare/v2.0.1...v3.0.0) (2025-08-31)
-
-
-* feat!: Support storybook v9 ([#65](https://github.com/mondaycom/storybook-addon-playground/issues/65)) ([389992d](https://github.com/mondaycom/storybook-addon-playground/commit/389992d14e04f8746ec12ab4b137825e7c965bb1))
-
-
-### BREAKING CHANGES
-
-* supporting v9 is a breaking change
-
-Co-authored-by: Yossi Saadi <yossisa@monday.com>
-
 ## [2.0.1](https://github.com/mondaycom/storybook-addon-playground/compare/v2.0.0...v2.0.1) (2025-08-14)
 
 
