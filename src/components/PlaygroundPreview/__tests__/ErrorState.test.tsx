@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@/tests";
+import { render } from "@testing-library/react";
 import ErrorState from "../ErrorState";
 
 describe("ErrorState", () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render } from "@/tests";
+import { fireEvent, render } from "@testing-library/react";
 import EditorTabs from "../EditorTabs";
 
 describe("EditorTabs", () => {

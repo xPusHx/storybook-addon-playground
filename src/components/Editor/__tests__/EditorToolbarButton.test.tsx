@@ -1,5 +1,5 @@
 import React, { SVGProps } from "react";
-import { fireEvent, render, within } from "@/tests";
+import { fireEvent, render, within } from "@testing-library/react";
 import EditorToolbarButton from "../EditorToolbarButton";
 const IconMock: React.FC<SVGProps<SVGSVGElement>> = () => <span>Icon</span>;
 

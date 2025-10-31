@@ -17,7 +17,6 @@ export default defineConfig({
     },
     alias: {
       "@": `${__dirname}/src`,
-      "@/tests": `${__dirname}/src/tests`,
     },
   },
 });

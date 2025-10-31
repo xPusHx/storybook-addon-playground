@@ -29,14 +29,14 @@ const config = {
 
 The addon configuration is done through Storybook's `preview` parameters.
 
-| Parameter         | Required | Default              | Description                                                                                                                                   |
-| ----------------- | -------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `storyId`         | `true`   |                      | The story id that your playground has on Storybook.                                                                                           |
-| `components`      | `true`   |                      | An object with the components that should be rendered in the playground. The key is the component name and the value is the component itself. |
-| `autocompletions` | `false`  | `[]`                 | An array of autocompletions that should be used on the playground. Recommended to use `react-docgen` for generating documentation outputs.    |
-| `editorTheme`     | `false`  | Your Storybook theme | The theme that should be used on the playground.                                                                                              |
-| `initialCode`     | `false`  | Empty editor         | The initial code ("welcome") that should be rendered on the playground.                                                                       |
-| `share`           | `false`  | `false`              | Whether to allow share capabilities.                                                                                                          |
+| Parameter        | Required | Default                           | Description                                                                                                           |
+|------------------|----------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `storyId`        | `true`   |                                   | The story id that your playground has on Storybook.                                                                   |
+| `components`     | `true`   |                                   | An object with the components that should be rendered in the playground. The key is the component name and the value is the component itself. |
+| `autocompletions`| `false`  | `[]`                              | An array of autocompletions that should be used on the playground. Recommended to use `react-docgen` for generating documentation outputs. |
+| `editorTheme`    | `false`  | Your Storybook theme              | The theme that should be used on the playground.                                                                      |
+| `initialCode`    | `false`  | Empty editor                      | The initial code ("welcome") that should be rendered on the playground.                                               |
+| `share`          | `false`  | `false`                           | Whether to allow share capabilities.                                                                                  |
 
 On your `.storybook/preview.ts` file, you should add something similar to the following:
 
@@ -44,14 +44,14 @@ On your `.storybook/preview.ts` file, you should add something similar to the fo
 import MyComponentsLibrary from "my-components-library";
 import MyIconsLibrary from "my-icons-library";
 import reactDocgenOutput from "./react-docgen-output.json";
-import { generateAutocompletion } from "storybook-addon-playground";
+import { generateAutocompletions } from "storybook-addon-playground";
 
 const preview = {
   parameters: {
     playground: {
       storyId: "playground",
       components: { ...MyComponentsLibrary, ...MyIconsLibrary },
-      autocompletions: generateAutocompletion(reactDocgenOutput),
+      autocompletions: generateAutocompletions(reactDocgenOutput),
       editorTheme: "light",
       introCode: { jsx: `<div>Welcome to my Playground!</div>`, css: "" },
     },

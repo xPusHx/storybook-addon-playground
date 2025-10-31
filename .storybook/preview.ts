@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react-vite";
+import type { Preview } from "@storybook/react";
 import * as VibeComponents from "@vibe/core";
 import * as VibeNext from "@vibe/core/next";
 import * as VibeIcons from "@vibe/icons";

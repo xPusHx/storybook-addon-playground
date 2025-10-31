@@ -3,45 +3,45 @@ import { expect } from "vitest";
 
 describe("prettier-utils", () => {
   describe("formatJsx", () => {
-    it("should return a correctly formatted string when given valid one-liner JSX code", async () => {
+    it("should return a correctly formatted string when given valid one-liner JSX code", () => {
       const code = "<div>Hello, World!</div>";
-      const result = await formatJsx(code);
+      const result = formatJsx(code);
       expect(result).toMatchSnapshot();
     });
 
-    it("should return a correctly formatted string when given valid multi-liner JSX code", async () => {
+    it("should return a correctly formatted string when given valid multi-liner JSX code", () => {
       const code = `<div><Button>Hello, World!</Button><Dropdown options={[{ value: 1, label: "Option 1" },{ value: 2, label: "Option 2" },{ value: 3, label: "Option 3" }]}/></div>`;
-      const result = await formatJsx(code);
+      const result = formatJsx(code);
       expect(result).toMatchSnapshot();
     });
 
-    it("should return empty string for empty input", async () => {
+    it("should return empty string for empty input", () => {
       const code = "";
       const expected = "";
-      const result = await formatJsx(code);
+      const result = formatJsx(code);
       expect(result).toEqual(expected);
     });
 
-    it("should remove leading and trailing white space in the input string", async () => {
+    it("should remove leading and trailing white space in the input string", () => {
       const code = "      <div>Hello, World!</div>   ";
-      const result = await formatJsx(code);
+      const result = formatJsx(code);
       expect(result).toMatchSnapshot();
     });
 
-    it("should throw when given invalid JSX code", async () => {
+    it("should throw when given invalid JSX code", () => {
       const code = "<div>Hello, World!</span>";
-      expect(async () => {
-        await formatJsx(code);
-      }).rejects.toThrowError();
+      expect(() => {
+        formatJsx(code);
+      }).toThrowError();
     });
 
-    it("should handle multi-line comments correctly", async () => {
+    it("should handle multi-line comments correctly", () => {
       const code = `<div><Button>Hello, World!</Button><Dropdown /*dropdown options*/ options={[{ value: 1, label: "Option 1" },{ value: 2, label: "Option 2" },{ value: 3, label: "Option 3" }]}/></div>`;
-      const result = await formatJsx(code);
+      const result = formatJsx(code);
       expect(result).toMatchSnapshot();
     });
 
-    it("should handle single-line comments correctly", async () => {
+    it("should handle single-line comments correctly", () => {
       const code = `
         <div>
             <Button>Hello, World!</Button>
@@ -50,60 +50,60 @@ describe("prettier-utils", () => {
                     { value: 1, label: "Option 1" },{ value: 2, label: "Option 2" },{ value: 3, label: "Option 3" }]
                 }/>
         </div>`;
-      const result = await formatJsx(code);
+      const result = formatJsx(code);
       expect(result).toMatchSnapshot();
     });
   });
 
   describe("formatCss", () => {
-    it("should return a correctly formatted string when given valid one-liner CSS code", async () => {
+    it("should return a correctly formatted string when given valid one-liner CSS code", () => {
       const code = "body { color: red; }";
-      const result = await formatCss(code);
+      const result = formatCss(code);
       expect(result).toMatchSnapshot();
     });
 
-    it("should return a correctly formatted string when given valid multi-liner CSS code", async () => {
+    it("should return a correctly formatted string when given valid multi-liner CSS code", () => {
       const code = `.container { display: flex;flex-direction: column;align-items: center; }.button { background-color: blue;color: white;padding: 10px 20px; }`;
-      const result = await formatCss(code);
+      const result = formatCss(code);
       expect(result).toMatchSnapshot();
     });
 
-    it("should return empty string for empty input", async () => {
+    it("should return empty string for empty input", () => {
       const code = "";
       const expected = "";
-      const result = await formatCss(code);
+      const result = formatCss(code);
       expect(result).toEqual(expected);
     });
 
-    it("should remove leading and trailing white space in the input string", async () => {
+    it("should remove leading and trailing white space in the input string", () => {
       const code = "      body { color: red; }      ";
-      const result = await formatCss(code);
+      const result = formatCss(code);
       expect(result).toMatchSnapshot();
     });
 
-    it("should throw when given invalid CSS code", async () => {
+    it("should throw when given invalid CSS code", () => {
       const code = "body { color: red; .{.button { background-color: blue; } }";
-      expect(async () => {
-        await formatCss(code);
-      }).rejects.toThrowError();
+      expect(() => {
+        formatCss(code);
+      }).toThrowError();
     });
 
-    it("should handle multi-line comments correctly", async () => {
+    it("should handle multi-line comments correctly", () => {
       const code = `/* Container styles */.container { display: flex;/* Flexbox properties */flex-direction: column;align-items: center; }`;
-      const result = await formatCss(code);
+      const result = formatCss(code);
       expect(result).toMatchSnapshot();
     });
 
-    it("should handle single-line comments correctly", async () => {
+    it("should handle single-line comments correctly", () => {
       const code = `
       .button {
-
+        
         background-color: blue;  // Button background color
       color: white;            // Button text color
         padding: 10px 20px;      // Button padding
       }
     `;
-      const result = await formatCss(code);
+      const result = formatCss(code);
       expect(result).toMatchSnapshot();
     });
   });
